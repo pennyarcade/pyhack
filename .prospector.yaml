@@ -1,0 +1,52 @@
+output-format: grouped
+
+strictness: high
+test-warnings: true
+doc-warnings: true
+# inherits:
+#   - my/other/profile.yml
+
+ignore-paths:
+  - lib
+  - .git
+
+ignore-patterns:
+  - (^|/)skip(this)?(/|$)
+
+pep8:
+  run: true
+  # disable:
+  #   - W602
+  #   - W603
+  enable:
+    - W601
+  options:
+    max-line-length: 79
+    single-line-if-stmt: n
+
+pep257:
+  run: true
+
+pylint:
+  run: true
+
+pyroma:
+  run: true
+
+mccabe:
+  run: true
+  options:
+    max-complexity: 10
+
+dodgy:
+  run: true
+
+pyflakes:
+  run: true
+
+frosted:
+  run: true
+
+vulture:
+  run: true
+
