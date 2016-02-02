@@ -1,1 +1,3 @@
 prospector.todo
+lib
+*.pyc
