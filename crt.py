@@ -7,12 +7,100 @@ Lots of work yet to do
 import sys
 import os
 import time
+import thread
 import lib.colorama
 import lib.colorama.ansi
 
-# this should not be run from cli
-if __name__ == "__main__":
-    pass
+WINDOWS = None
+
+try:
+    from msvcrt import getch  # try to import Windows version
+    WINDOWS = True
+
+except ImportError:
+    WINDOWS = False
+    try:
+        import tty
+        import termios
+    except ImportError:
+        print "Import error"
+        quit()
+
+
+KEYBUFFER = None
+LOCK = None
+RUNNING = None
+
+
+def __getch_unix():
+    """
+    getch linux
+
+    define non-Windows version
+
+    """
+    old_settings = termios.tcgetattr(sys.stdin.fileno())
+    try:
+        tty.setraw(sys.stdin.fileno())
+        character = sys.stdin.read(1)
+    finally:
+        termios.tcsetattr(
+            sys.stdin.fileno(), termios.TCSADRAIN, old_settings
+        )
+    return character
+
+
+def keypress_win():
+    """keypress windows"""
+    global KEYBUFFER, RUNNING, LOCK
+
+    char = getch()
+
+    LOCK.acquire()
+    if ord(char) == 0 or ord(char) == 224: #Special keys
+        KEYBUFFER.append(getch())
+    KEYBUFFER.append(char)
+
+    while len(KEYBUFFER) > 100:
+        KEYBUFFER.pop(0)
+
+    RUNNING = False
+    LOCK.release()
+
+
+def keypress_unix():
+    """keypress linux"""
+    global KEYBUFFER, RUNNING
+
+    # get special char combinations on linux up to 5 byte
+    character_array = []
+    character_array.append(__getch_unix())
+    if ord(character_array[0]) == 27:
+        character_array.append(__getch_unix())
+        if ord(character_array[1]) == 91:
+            character_array.append(__getch_unix())
+            if (
+                    ord(character_array[2]) >= 49 and
+                    ord(character_array[2]) <= 54
+            ) or ord(character_array[2]) == 91:
+                character_array.append(__getch_unix())
+                if (
+                        ord(character_array[3]) >= 48 and
+                        ord(character_array[3]) <= 57
+                    ):
+                    character_array.append(__getch_unix())
+
+    LOCK.acquire()
+    # add to keyboard buffer in reverse order to facilitate popping o stack
+    while len(character_array) > 0:
+        KEYBUFFER.append(character_array.pop())
+
+    # limit buffer size by discarting overflow
+    while len(KEYBUFFER) > 100:
+        KEYBUFFER.pop(0)
+
+    RUNNING = False
+    LOCK.release()
 
 
 class Crt(object):
@@ -99,31 +187,69 @@ class Crt(object):
         """
         super(Crt, self).__init__()
 
+        global KEYBUFFER, LOCK, RUNNING
+
+        KEYBUFFER = list()
+        LOCK = thread.allocate_lock()
+        RUNNING = True
+
+        # setup system appropriate functions
+        if WINDOWS:
+            self.keypress = keypress_win
+        else:
+            self.keypress = keypress_unix
+
+        thread.start_new_thread(self.__scan_for_keys, ())
+
+        self.write = sys.stdout.write
+        """wrap stdout for writing"""
+
+        self.delay = time.sleep
+        """
+        Delay execution for n seconds
+
+        just wrap builtin method
+        """
+
         # color constants
-        self.BLACK = 0
-        self.RED = 1
-        self.GREEN = 2
-        self.YELLOW = 3
-        self.BLUE = 4
-        self.MAGENTA = 5
-        self.CYAN = 6
-        self.WHITE = 7
-        self.RESET = 9
+        self.black = 0
+        self.red = 1
+        self.green = 2
+        self.yellow = 3
+        self.blue = 4
+        self.magenta = 5
+        self.cyan = 6
+        self.white = 7
+        self.reset = 9
 
         # These are fairly well supported, but not part of the standard.
-        self.LBLACK = 60
-        self.LRED = 61
-        self.LGREEN = 62
-        self.LYELLOW = 63
-        self.LBLUE = 64
-        self.LMAGENTA = 65
-        self.LCYAN = 66
-        self.LWHITE = 67
+        self.lblack = 60
+        self.lred = 61
+        self.lgreen = 62
+        self.lyellow = 63
+        self.lblue = 64
+        self.lmagenta = 65
+        self.lcyan = 66
+        self.lwhite = 67
 
 
-    def write(self, text):
-        """wrap stdout for writing"""
-        sys.stdout.write(text)
+    def __scan_for_keys(self):
+        """repeatedly restart key scanning"""
+        global RUNNING
+
+        # wait for key in separate thread
+        RUNNING = True
+        thread.start_new_thread(self.keypress, ())
+
+        # scan forever
+        while True:
+            # check if thread has run
+
+            if not RUNNING:
+                # restart thread
+                RUNNING = True
+                thread.start_new_thread(self.keypress, ())
+
 
 
     def write_ln(self, text):
@@ -154,15 +280,6 @@ class Crt(object):
     def cursor_on(self):
         """TBD"""
         pass
-
-
-    def delay(self, seconds):
-        """
-        Delay execution for n seconds
-
-        just wrap builtin method
-        """
-        time.sleep(seconds)
 
 
     def del_line(self):
@@ -252,29 +369,25 @@ class Crt(object):
         pass
 
 
-    def read_key(self):
-        """
-        ReadKey reads 1 key from the keyboard buffer, and returns this.
-
-        If an extended or function key has been pressed, then the zero
-        ASCII code is returned. You can then read the scan code of the key
-        with a second ReadKey call.
-        TBD
-        """
-        pass
-
-
     def key_pressed(self):
-        """
-        Keypressed scans the keyboard buffer and sees if a key has been pressed.
+        """has a key been pressed i.e. KEYBUFFER is not empty"""
+        global LOCK, KEYBUFFER
 
-        If this is the case, True is returned. If not,
-        False is returned. The Shift, Alt, Ctrl keys are not reported.
-        The key is not removed from the buffer, and can hence still be
-        read after the KeyPressed function has been called.
-        TBD
-        """
-        pass
+        LOCK.acquire()
+        value = len(KEYBUFFER) > 0
+        LOCK.release()
+        return value
+
+
+    def read_key(self):
+        """fetch a key from the keyboard buffer"""
+        global LOCK, KEYBUFFER
+
+        try:
+            return KEYBUFFER.pop()
+        except IndexError:
+            return None
+
 
 
     def text_background(self, color):
@@ -340,3 +453,15 @@ class Crt(object):
         top left corner.
         """
         pass
+
+
+
+# this should not be run from cli
+if __name__ == "__main__":
+    SCREEN = Crt()
+
+    while True:
+        print "\r" + str(KEYBUFFER)
+        time.sleep(2)
+        if SCREEN.read_key() == '#':
+            break
