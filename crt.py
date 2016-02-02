@@ -5,7 +5,6 @@ Lots of work yet to do
 """
 
 import sys
-import os
 import time
 import thread
 import lib.colorama
@@ -101,6 +100,27 @@ def keypress_unix():
 
     RUNNING = False
     LOCK.release()
+
+
+def key_pressed__():
+    """has a key been pressed i.e. KEYBUFFER is not empty"""
+    global LOCK, KEYBUFFER
+
+    LOCK.acquire()
+    value = len(KEYBUFFER) > 0
+    LOCK.release()
+    return value
+
+
+def read_key__():
+    """fetch a key from the keyboard buffer"""
+    global LOCK, KEYBUFFER
+
+    try:
+        return KEYBUFFER.pop()
+    except IndexError:
+        return None
+
 
 
 class Crt(object):
@@ -211,6 +231,9 @@ class Crt(object):
         just wrap builtin method
         """
 
+        self.key_pressed = key_pressed__
+        self.read_key = read_key__
+
         # color constants
         self.black = 0
         self.red = 1
@@ -254,7 +277,7 @@ class Crt(object):
 
     def write_ln(self, text):
         """write to stdout with newline"""
-        self.write(text + os.linesep)
+        self.write(str(text) + "\r\n")
 
 
     def clr_eol(self, mode=2):
@@ -367,28 +390,6 @@ class Crt(object):
         TBD
         """
         pass
-
-
-    def key_pressed(self):
-        """has a key been pressed i.e. KEYBUFFER is not empty"""
-        global LOCK, KEYBUFFER
-
-        LOCK.acquire()
-        value = len(KEYBUFFER) > 0
-        LOCK.release()
-        return value
-
-
-    def read_key(self):
-        """fetch a key from the keyboard buffer"""
-        global LOCK, KEYBUFFER
-
-        try:
-            return KEYBUFFER.pop()
-        except IndexError:
-            return None
-
-
 
     def text_background(self, color):
         """
