@@ -6,14 +6,14 @@ Console only for now
 Attempts to be cross platform
 """
 
-import os
-import platform
 from crt import Crt
 
 
 class PyHack(object):
     """main game class"""
+
     def __init__(self):
+        """initialize game"""
         super(PyHack, self).__init__()
 
         self.screen = Crt()
@@ -82,11 +82,8 @@ class PyHack(object):
 
     def updater(self):
         """update game screen"""
-        # @todo: use Crt class to clear screen
-        if platform.system() == 'Windows':
-            os.system('cls')
-        elif platform.system() == 'Linux':
-            os.system('clear') #For linux.. I don't know what to do about mac :/
+        # self.screen.clr_scr()
+        self.screen.goto_xy(0, 0)
         self.gamemap()
         self.player_pos()
 
@@ -203,7 +200,6 @@ def main():
 
     kick off the game
     """
-
     game = PyHack()
     game.game_loop()
 
