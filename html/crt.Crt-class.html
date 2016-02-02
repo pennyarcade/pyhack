@@ -1,0 +1,1088 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>crt.Crt</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="crt-module.html">Module&nbsp;crt</a> ::
+        Class&nbsp;Crt
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="crt.Crt-class.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS DESCRIPTION ==================== -->
+<h1 class="epydoc">Class Crt</h1><p class="nomargin-top"><span class="codelink"><a href="crt-pysrc.html#Crt">source&nbsp;code</a></span></p>
+<pre class="base-tree">
+object --+
+         |
+        <strong class="uidshort">Crt</strong>
+</pre>
+
+<hr />
+<pre class="literalblock">
+
+wrap all console interaction TurboPascal Style
+
+Constants:
+    Black           Black color attribute
+    Blink           Blink attribute
+    Blue            Blue color attribute
+    Brown           Brown color attribute
+    BW40            40 columns black and white screen mode.
+    BW80            80 columns black and white screen mode.
+    C40             40 columns color screen mode.
+    C80             80 columns color screen mode.
+    CO40            40 columns color screen mode.
+    CO80            80 columns color screen mode.
+    Cyan            Cyan color attribute
+    DarkGray        Dark gray color attribute
+    Font8x8         Internal ROM font mode
+    Green           Green color attribute
+    LightBlue       Light Blue color attribute
+    LightCyan       Light cyan color attribute
+    LightGray       Light gray color attribute
+    LightGreen      Light green color attribute
+    LightMagenta    Light magenta color attribute
+    LightRed        Light red color attribute
+    Magenta         Magenta color attribute
+    Mono            Monochrome screen mode (hercules screens)
+    Red             Red color attribute
+    ScreenHeight    Current screen height.
+    ScreenWidth     Current screen width
+    White           White color attribute
+    Yellow          Yellow color attribute
+
+Types:
+    tcrtcoord       Type to denote CRT coordinate
+
+Functions:
+    AssignCrt       Assign file to CRT. (unsupported)
+    ClrEol          Clear from cursor position till end of line.
+    ClrScr          Clear current window.
+    cursorbig       Show big cursor
+    cursoroff       Hide cursor
+    cursoron        Display cursor
+    Delay           Delay program execution.
+    DelLine         Delete line at cursor position.
+    GotoXY          Set cursor position on screen.
+    HighVideo       Switch to highlighted text mode
+    InsLine         Insert an empty line at cursor position
+    KeyPressed      Check if there is a keypress in the keybuffer
+    LowVideo        Switch to low intensity colors.
+    NormVideo       Return to normal (startup) modus
+    NoSound         Stop system speaker
+    ReadKey         Read key from keybuffer
+    Sound           Sound system speaker
+    TextBackground  Set text background
+    TextColor       Set text color
+    TextMode        Set screen mode.
+    WhereX          Return X (horizontal) cursor position
+    WhereY          Return Y (vertical) cursor position
+    Window          Create new window on screen.
+
+Variables:
+    CheckBreak      Check for CTRL-Break keystroke. Not used.
+    CheckEOF        Check for EOF on standard input. Not used.
+    CheckSnow       Check snow on CGA screens. Not used.
+    DirectVideo     Use direct video access. DOS only
+    LastMode        Last screen mode.
+    TextAttr        Mask to filter text attribute
+    WindMax         Lower right corner of currently defined window
+    WindMaxX        X coordinate of lower right corner of the defined window
+    WindMaxY        Y coordinate of lower right corner of the defined window
+    WindMin         Upper left corner of currently defined window
+    WindMinX        X coordinate of upper left corner of the defined window
+    WindMinY        Y coordinate of upper left corner of the defined window
+
+</pre>
+
+<!-- ==================== INSTANCE METHODS ==================== -->
+<a name="section-InstanceMethods"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Instance Methods</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-InstanceMethods"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="crt.Crt-class.html#__init__" class="summary-sig-name">__init__</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      initialize class</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="crt-pysrc.html#Crt.__init__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="__scan_for_keys"></a><span class="summary-sig-name">__scan_for_keys</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      repeatedly restart key scanning</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="crt-pysrc.html#Crt.__scan_for_keys">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="write_ln"></a><span class="summary-sig-name">write_ln</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">text</span>)</span><br />
+      write to stdout with newline</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="crt-pysrc.html#Crt.write_ln">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="clr_eol"></a><span class="summary-sig-name">clr_eol</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">mode</span>=<span class="summary-sig-default">2</span>)</span><br />
+      Clear from cursor position till end of line.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="crt-pysrc.html#Crt.clr_eol">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="clr_scr"></a><span class="summary-sig-name">clr_scr</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">mode</span>=<span class="summary-sig-default">2</span>)</span><br />
+      Clear current window.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="crt-pysrc.html#Crt.clr_scr">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="cursor_big"></a><span class="summary-sig-name">cursor_big</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      TBD</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="crt-pysrc.html#Crt.cursor_big">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="cursor_off"></a><span class="summary-sig-name">cursor_off</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      TBD</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="crt-pysrc.html#Crt.cursor_off">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="cursor_on"></a><span class="summary-sig-name">cursor_on</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      TBD</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="crt-pysrc.html#Crt.cursor_on">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="crt.Crt-class.html#del_line" class="summary-sig-name">del_line</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      DelLine removes the current line.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="crt-pysrc.html#Crt.del_line">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="crt.Crt-class.html#ins_line" class="summary-sig-name">ins_line</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      InsLine inserts an empty line at the current cursor position.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="crt-pysrc.html#Crt.ins_line">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="crt.Crt-class.html#goto_xy" class="summary-sig-name">goto_xy</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">x_coordinate</span>,
+        <span class="summary-sig-arg">y_coordinate</span>)</span><br />
+      GotoXY positions the cursor at (X,Y),</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="crt-pysrc.html#Crt.goto_xy">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="crt.Crt-class.html#high_video" class="summary-sig-name">high_video</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      HighVideo switches the output to highlighted text.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="crt-pysrc.html#Crt.high_video">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="crt.Crt-class.html#norm_video" class="summary-sig-name">norm_video</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      NormVideo switches the output to the defaults, read at startup.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="crt-pysrc.html#Crt.norm_video">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="crt.Crt-class.html#low_video" class="summary-sig-name">low_video</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      LowVideo switches the output to non-highlighted text.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="crt-pysrc.html#Crt.low_video">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="crt.Crt-class.html#sound" class="summary-sig-name">sound</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Sound sounds the speaker at a frequency of hz.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="crt-pysrc.html#Crt.sound">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="crt.Crt-class.html#no_sound" class="summary-sig-name">no_sound</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      NoSound stops the speaker sound.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="crt-pysrc.html#Crt.no_sound">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="crt.Crt-class.html#key_pressed" class="summary-sig-name">key_pressed</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      has a key been pressed i.e.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="crt-pysrc.html#Crt.key_pressed">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="read_key"></a><span class="summary-sig-name">read_key</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      fetch a key from the keyboard buffer</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="crt-pysrc.html#Crt.read_key">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="crt.Crt-class.html#text_background" class="summary-sig-name">text_background</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">color</span>)</span><br />
+      TextBackground sets the background color to CL.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="crt-pysrc.html#Crt.text_background">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="crt.Crt-class.html#text_color" class="summary-sig-name">text_color</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">color</span>)</span><br />
+      TextColor sets the foreground color to CL.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="crt-pysrc.html#Crt.text_color">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="crt.Crt-class.html#text_mode" class="summary-sig-name">text_mode</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">mode</span>)</span><br />
+      TextMode sets the textmode of the screen</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="crt-pysrc.html#Crt.text_mode">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="crt.Crt-class.html#where_x" class="summary-sig-name">where_x</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      WhereX returns the current X-coordinate of the cursor,</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="crt-pysrc.html#Crt.where_x">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="crt.Crt-class.html#where_y" class="summary-sig-name">where_y</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      WhereY returns the current X-coordinate of the cursor,</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="crt-pysrc.html#Crt.where_y">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="crt.Crt-class.html#window" class="summary-sig-name">window</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Window creates a window on the screen, to which output will be sent.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="crt-pysrc.html#Crt.window">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
+      <code>__delattr__</code>,
+      <code>__format__</code>,
+      <code>__getattribute__</code>,
+      <code>__hash__</code>,
+      <code>__new__</code>,
+      <code>__reduce__</code>,
+      <code>__reduce_ex__</code>,
+      <code>__repr__</code>,
+      <code>__setattr__</code>,
+      <code>__sizeof__</code>,
+      <code>__str__</code>,
+      <code>__subclasshook__</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== INSTANCE VARIABLES ==================== -->
+<a name="section-InstanceVariables"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Instance Variables</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-InstanceVariables"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="write"></a><span class="summary-name">write</span><br />
+      wrap stdout for writing
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="crt.Crt-class.html#delay" class="summary-name">delay</a><br />
+      Delay execution for n seconds
+    </td>
+  </tr>
+</table>
+<!-- ==================== PROPERTIES ==================== -->
+<a name="section-Properties"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Properties</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Properties"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
+      <code>__class__</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== METHOD DETAILS ==================== -->
+<a name="section-MethodDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Method Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-MethodDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="__init__"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">__init__</span>(<span class="sig-arg">self</span>)</span>
+    <br /><em class="fname">(Constructor)</em>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="crt-pysrc.html#Crt.__init__">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>initialize class</p>
+  <p>@todo has to many class attributes?</p>
+  <dl class="fields">
+    <dt>Overrides:
+        object.__init__
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="del_line"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">del_line</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="crt-pysrc.html#Crt.del_line">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>DelLine removes the current line.</p>
+  <p>Lines following the current line are scrolled 1 line up, and an empty 
+  line is inserted at the bottom of the current window. The cursor doesn't 
+  move.</p>
+  <p>TBD</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="ins_line"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">ins_line</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="crt-pysrc.html#Crt.ins_line">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>InsLine inserts an empty line at the current cursor position.</p>
+  <p>Lines following the current line are scrolled 1 line down, causing the
+  last line to disappear from the window. The cursor doesn't move.</p>
+  <p>TBD</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="goto_xy"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">goto_xy</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">x_coordinate</span>,
+        <span class="sig-arg">y_coordinate</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="crt-pysrc.html#Crt.goto_xy">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>GotoXY positions the cursor at (X,Y),</p>
+  <p>X in horizontal, Y in vertical direction relative to the origin of the
+  current window. The origin is located at (1,1), the upper-left corner of 
+  the window.</p>
+  <p>TODO: Cache coordinates</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="high_video"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">high_video</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="crt-pysrc.html#Crt.high_video">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>HighVideo switches the output to highlighted text.</p>
+  <p>(It sets the high intensity bit of the video attribute)</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="norm_video"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">norm_video</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="crt-pysrc.html#Crt.norm_video">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>NormVideo switches the output to the defaults, read at startup.</p>
+  <p>(The defaults are read from the cursor position at startup)</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="low_video"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">low_video</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="crt-pysrc.html#Crt.low_video">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>LowVideo switches the output to non-highlighted text.</p>
+  <p>(It clears the high intensity bit of the video attribute)</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="sound"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">sound</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="crt-pysrc.html#Crt.sound">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Sound sounds the speaker at a frequency of hz. Under Windows,</p>
+  <p>a system sound is played and the frequency parameter is ignored. On 
+  other operating systems, this routine may not be implemented. TBD</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="no_sound"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">no_sound</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="crt-pysrc.html#Crt.no_sound">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>NoSound stops the speaker sound.</p>
+  <p>This call is not supported on all operating systems. TBD</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="key_pressed"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">key_pressed</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="crt-pysrc.html#Crt.key_pressed">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>has a key been pressed i.e. KEYBUFFER is not empty</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="text_background"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">text_background</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">color</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="crt-pysrc.html#Crt.text_background">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>TextBackground sets the background color to CL.</p>
+  <p>CL can be one of the predefined color constants.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="text_color"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">text_color</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">color</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="crt-pysrc.html#Crt.text_color">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>TextColor sets the foreground color to CL.</p>
+  <p>CL can be one of the predefined color constants.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="text_mode"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">text_mode</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">mode</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="crt-pysrc.html#Crt.text_mode">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>TextMode sets the textmode of the screen</p>
+  <p>(i.e. the number of lines and columns of the screen). The lower byte 
+  is use to set the VGA text mode. TBD</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="where_x"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">where_x</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="crt-pysrc.html#Crt.where_x">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>WhereX returns the current X-coordinate of the cursor,</p>
+  <p>relative to the current window. The origin is (1,1), in the upper-left
+  corner of the window. TBD</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="where_y"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">where_y</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="crt-pysrc.html#Crt.where_y">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>WhereY returns the current X-coordinate of the cursor,</p>
+  <p>relative to the current window. The origin is (1,1), in the upper-left
+  corner of the window. TBD</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="window"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">window</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="crt-pysrc.html#Crt.window">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Window creates a window on the screen, to which output will be 
+  sent.</p>
+  <p>(X1,Y1) are the coordinates of the upper left corner of the window, 
+  (X2,Y2) are the coordinates of the bottom right corner of the window. 
+  These coordinates are relative to the entire screen, with the top left 
+  corner equal to (1,1). Further coordinate operations, except for the next
+  Window call, are relative to the window's top left corner.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== INSTANCE VARIABLE DETAILS ==================== -->
+<a name="section-InstanceVariableDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Instance Variable Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-InstanceVariableDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="delay"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">delay</h3>
+  <p>Delay execution for n seconds</p>
+  <p>just wrap builtin method</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Tue Feb  2 09:32:10 2016
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>
