@@ -1,3 +1,4 @@
 prospector.todo
 lib
 *.pyc
+.coverage
