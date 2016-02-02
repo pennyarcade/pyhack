@@ -7,8 +7,10 @@ Lots of work yet to do
 import sys
 import time
 import thread
+
 import lib.colorama
 import lib.colorama.ansi
+import terminalsize
 
 WINDOWS = None
 
@@ -122,6 +124,15 @@ def read_key__():
         return None
 
 
+def _get_screen_height():
+    result = terminalsize.get_terminal_size()
+    return result[1]
+
+
+def _get_screen_width():
+    result = terminalsize.get_terminal_size()
+    return result[0]
+
 
 class Crt(object):
     """
@@ -233,6 +244,9 @@ class Crt(object):
 
         self.key_pressed = key_pressed__
         self.read_key = read_key__
+        self.screen_width = _get_screen_width
+        self.screen_height = _get_screen_height
+
 
         # color constants
         self.black = 0
@@ -272,7 +286,6 @@ class Crt(object):
                 # restart thread
                 RUNNING = True
                 thread.start_new_thread(self.keypress, ())
-
 
 
     def write_ln(self, text):
@@ -439,7 +452,8 @@ class Crt(object):
         in the upper-left corner of the window.
         TBD
         """
-        pass
+        self.write(lib.colorama.ansi.CSI + '6n')
+
 
 
     def window(self):
