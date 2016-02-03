@@ -452,8 +452,8 @@ class Crt(object):
         in the upper-left corner of the window.
         TBD
         """
-        self.write(lib.colorama.ansi.CSI + '6n')
-
+        # self.write(lib.colorama.ansi.CSI + '6n')
+        pass
 
 
     def window(self):
@@ -468,7 +468,6 @@ class Crt(object):
         top left corner.
         """
         pass
-
 
 
 # this should not be run from cli
